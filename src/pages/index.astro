@@ -1,0 +1,250 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<main>
+		<section class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1>Village Lodge 315</h1>
+					<div class="divider"></div>
+					<p class="tagline">Brotherhood • Charity • Truth</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="about">
+			<div class="container">
+				<h2>About Our Lodge</h2>
+				<p>
+					Village Lodge 315 is a distinguished Masonic lodge dedicated to the timeless principles
+					of Freemasonry. We gather as brothers to support one another, serve our community,
+					and seek light through fellowship and moral development.
+				</p>
+				<p>
+					Our lodge provides a welcoming space for men of good character who seek to improve
+					themselves and make a positive impact in the world through charitable work and
+					personal growth.
+				</p>
+			</div>
+		</section>
+
+		<section class="principles">
+			<div class="container">
+				<h2>Our Principles</h2>
+				<div class="principles-grid">
+					<div class="principle-card">
+						<h3>Brotherhood</h3>
+						<p>Building lasting bonds of friendship and mutual support among our members.</p>
+					</div>
+					<div class="principle-card">
+						<h3>Charity</h3>
+						<p>Serving our community through compassionate action and generosity.</p>
+					</div>
+					<div class="principle-card">
+						<h3>Truth</h3>
+						<p>Seeking wisdom and living with integrity, honor, and moral virtue.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="contact">
+			<div class="container">
+				<h2>Get In Touch</h2>
+				<p>
+					If you are interested in learning more about Freemasonry or Village Lodge 315,
+					we welcome your inquiry.
+				</p>
+				<a href="mailto:secretary.village315@gmail.com" class="contact-button">
+					Contact Our Secretary
+				</a>
+			</div>
+		</section>
+
+		<footer>
+			<div class="container">
+				<p>&copy; {new Date().getFullYear()} Village Lodge 315. All rights reserved.</p>
+			</div>
+		</footer>
+	</main>
+</Layout>
+
+<style>
+	main {
+		width: 100%;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	section {
+		padding: 80px 0;
+	}
+
+	.hero {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(135deg, #1a4d7a 0%, #2c5f8d 100%);
+		color: white;
+		text-align: center;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		margin-bottom: 24px;
+		font-weight: 600;
+		letter-spacing: 2px;
+	}
+
+	.divider {
+		width: 80px;
+		height: 2px;
+		background: #d4af37;
+		margin: 0 auto 24px;
+	}
+
+	.tagline {
+		font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+		font-weight: 300;
+		letter-spacing: 4px;
+		text-transform: uppercase;
+		color: #e8e8e8;
+	}
+
+	.about {
+		background: white;
+	}
+
+	.about h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		margin-bottom: 32px;
+		text-align: center;
+		color: #1a4d7a;
+	}
+
+	.about p {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		max-width: 800px;
+		margin: 0 auto 24px;
+		color: #444;
+	}
+
+	.principles {
+		background: #f5f5f5;
+	}
+
+	.principles h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		margin-bottom: 48px;
+		text-align: center;
+		color: #1a4d7a;
+	}
+
+	.principles-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 32px;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.principle-card {
+		background: white;
+		padding: 40px 32px;
+		border-radius: 2px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		text-align: center;
+	}
+
+	.principle-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+	}
+
+	.principle-card h3 {
+		font-size: 1.75rem;
+		margin-bottom: 16px;
+		color: #1a4d7a;
+	}
+
+	.principle-card p {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #666;
+	}
+
+	.contact {
+		background: white;
+		text-align: center;
+	}
+
+	.contact h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		margin-bottom: 24px;
+		color: #1a4d7a;
+	}
+
+	.contact p {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		max-width: 700px;
+		margin: 0 auto 40px;
+		color: #444;
+	}
+
+	.contact-button {
+		display: inline-block;
+		padding: 16px 48px;
+		background: #1a4d7a;
+		color: white;
+		text-decoration: none;
+		font-size: 1.125rem;
+		font-weight: 400;
+		border-radius: 2px;
+		transition: background 0.3s ease, transform 0.2s ease;
+		letter-spacing: 1px;
+	}
+
+	.contact-button:hover {
+		background: #2c5f8d;
+		transform: translateY(-2px);
+	}
+
+	footer {
+		background: #1a1a1a;
+		color: #999;
+		text-align: center;
+		padding: 32px 0;
+	}
+
+	footer p {
+		font-size: 0.9rem;
+	}
+
+	@media (max-width: 768px) {
+		section {
+			padding: 60px 0;
+		}
+
+		.hero {
+			min-height: 80vh;
+		}
+
+		.principles-grid {
+			gap: 24px;
+		}
+
+		.principle-card {
+			padding: 32px 24px;
+		}
+	}
+</style>
