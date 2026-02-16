@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Village 315 - Masonic Lodge</title>
+    <title>Village 315 Lodge - Ancient Free & Accepted Masons</title>
     <style>
         * {
             margin: 0;
@@ -13,554 +13,806 @@
 
         body {
             font-family: 'Georgia', 'Garamond', serif;
-            line-height: 1.6;
+            line-height: 1.7;
+            color: #000000;
+            background: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: #000000;
             color: #ffffff;
-            background: #000000;
-        }
-
-        .hero {
-            min-height: 100vh;
-            background: #000000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
             padding: 2rem;
+            text-align: center;
+            border-bottom: 8px solid #ffffff;
+            position: relative;
         }
 
-        .checkered-floor {
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 600px;
+            height: 2px;
+            background: #ffffff;
+        }
+
+        header::before {
+            top: 15%;
+        }
+
+        header::after {
+            bottom: 15%;
+        }
+
+        .header-symbol {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .header-symbol svg {
+            width: 100%;
+            height: 100%;
+            stroke: #ffffff;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        header .tagline {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        header .coat-of-arms {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* Main Navigation */
+        nav {
+            background: #ffffff;
+            border-bottom: 1px solid #000000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-right: 1px solid #000000;
+            transition: background 0.3s ease;
+        }
+
+        nav li:last-child a {
+            border-right: none;
+        }
+
+        nav a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        section h2::after {
+            content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            right: 0;
-            height: 150px;
-            background-image:
-                repeating-linear-gradient(
-                    90deg,
-                    #ffffff 0px,
-                    #ffffff 40px,
-                    #000000 40px,
-                    #000000 80px
-                ),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent 0px,
-                    transparent 40px,
-                    rgba(255,255,255,0.1) 40px,
-                    rgba(255,255,255,0.1) 80px
-                );
-            background-size: 80px 80px;
-            background-position: 0 0, 40px 40px;
-            opacity: 0.2;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 2px;
+            background: #000000;
         }
 
-        .columns {
+        /* Hero Section */
+        #hero {
+            background: #000000;
+            color: #ffffff;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 8px dashed #ffffff;
+        }
+
+        #hero::before {
+            content: '';
             position: absolute;
-            bottom: 150px;
-            left: 10%;
-            right: 10%;
-            display: flex;
-            justify-content: space-between;
-            opacity: 0.15;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(255,255,255,0.02) 30px,
+                    rgba(255,255,255,0.02) 60px
+                );
+            border-radius: 50%;
             pointer-events: none;
         }
 
-        .column {
-            width: 80px;
-            height: 300px;
-            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 10%, #cccccc 10%, #cccccc 90%, #ffffff 90%, #ffffff 100%);
-            position: relative;
-        }
-
-        .column::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 40px;
-            background: #ffffff;
-            clip-path: polygon(10% 100%, 90% 100%, 100% 0%, 0% 0%);
-        }
-
-        .hero-content {
-            text-align: center;
+        #hero .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
-        }
-
-        .masonic-symbol {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 2rem;
-            position: relative;
         }
 
         .square-compass {
-            position: relative;
-            width: 100%;
-            height: 100%;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 2rem;
         }
 
         .square-compass svg {
             width: 100%;
             height: 100%;
+            stroke: #ffffff;
             fill: none;
-            stroke: #ffffff;
-            stroke-width: 3;
+            stroke-width: 2.5;
         }
 
-        .letter-g {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            font-weight: bold;
-            color: #ffffff;
-            font-family: 'Georgia', serif;
-        }
-
-        .all-seeing-eye {
-            width: 100px;
-            height: 100px;
-            margin: 2rem auto;
-            position: relative;
-        }
-
-        .all-seeing-eye svg {
-            width: 100%;
-            height: 100%;
-            fill: #ffffff;
-            stroke: #ffffff;
-            stroke-width: 2;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            font-weight: 400;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 20px rgba(255,255,255,0.3);
-        }
-
-        .subtitle {
-            font-size: clamp(1rem, 2vw, 1.5rem);
+        #hero h1 {
+            font-size: 3.5rem;
             font-weight: 300;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            opacity: 0.8;
-            margin-bottom: 1rem;
-        }
-
-        .motto {
-            font-size: clamp(0.875rem, 1.5vw, 1.125rem);
-            font-style: italic;
-            letter-spacing: 0.15em;
-            opacity: 0.7;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.3);
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding: 1rem 0;
-        }
-
-        .sacred-geometry {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 600px;
-            opacity: 0.05;
-            pointer-events: none;
-        }
-
-        .sacred-geometry svg {
-            width: 100%;
-            height: auto;
-            stroke: #ffffff;
-            fill: none;
-            stroke-width: 1;
-        }
-
-        .about {
-            min-height: 100vh;
-            background: #1a1a1a;
-            color: #ffffff;
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(255,255,255,0.02) 50px,
-                    rgba(255,255,255,0.02) 100px
-                );
-            pointer-events: none;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 400;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-            text-align: center;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
-            padding-bottom: 1rem;
-        }
-
-        .pillars-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin: 4rem 0;
-        }
-
-        .pillar {
-            text-align: center;
-            padding: 2rem;
-            border: 2px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.03);
-        }
-
-        .pillar-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1.5rem;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .pillar h3 {
-            font-size: 1.5rem;
             letter-spacing: 0.2em;
             margin-bottom: 1rem;
             text-transform: uppercase;
         }
 
-        .pillar p {
+        #hero .motto {
+            font-size: 1.3rem;
+            font-style: italic;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+            margin: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            padding: 1.5rem 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #hero .sub-text {
+            font-size: 1rem;
+            letter-spacing: 0.15em;
             opacity: 0.8;
+            margin-top: 1rem;
+        }
+
+        /* About Section */
+        #about {
+            background: #ffffff;
+            border-top: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+        }
+
+        .about-intro {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.8;
         }
 
-        .contact {
-            min-height: 100vh;
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .principle {
+            padding: 2.5rem;
+            border: 3px solid #000000;
+            position: relative;
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .principle:hover {
+            background: #f5f5f5;
+            transform: translateY(-5px);
+        }
+
+        .principle-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
             background: #000000;
             color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem 2rem;
-            position: relative;
-            border-top: 3px solid #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50%;
         }
 
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 80px,
-                    rgba(255,255,255,0.03) 80px,
-                    rgba(255,255,255,0.03) 160px
-                );
-            pointer-events: none;
-        }
-
-        .contact-content {
-            max-width: 700px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-            border: 3px solid rgba(255,255,255,0.3);
-            padding: 3rem;
-            background: rgba(0,0,0,0.8);
-        }
-
-        .contact h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 400;
-            letter-spacing: 0.3em;
+        .principle h3 {
+            font-size: 1.4rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
             text-transform: uppercase;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
         }
 
-        .contact h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
+        .principle p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Degrees Section */
+        #degrees {
+            background: #f9f9f9;
+        }
+
+        .degrees-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .degree {
+            text-align: center;
+            padding: 2rem;
+            border-left: 4px solid #000000;
             background: #ffffff;
+        }
+
+        .degree-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .degree h3 {
+            font-size: 1.3rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .degree p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Officers Section */
+        #officers {
+            background: #ffffff;
+            border-top: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+        }
+
+        .officers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .officer {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid #000000;
+        }
+
+        .officer h3 {
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .officer-title {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            opacity: 0.7;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .officer-symbol {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* Meeting Info Section */
+        #meetings {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        #meetings h2 {
+            color: #ffffff;
+        }
+
+        #meetings h2::after {
+            background: #ffffff;
+        }
+
+        .meetings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .meeting-info {
+            padding: 2rem;
+            border: 2px solid #ffffff;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .meeting-info h3 {
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .meeting-info p {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: #f9f9f9;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
         .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            padding: 2rem;
+            background: #ffffff;
+            border: 2px solid #000000;
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
-        label {
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
-        input,
-        textarea {
-            padding: 1rem;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.05);
-            color: #ffffff;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #000000;
             font-family: 'Georgia', serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            background: #ffffff;
+            color: #000000;
         }
 
-        input:focus,
-        textarea:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
-            border-color: #ffffff;
-            background: rgba(255,255,255,0.1);
+            border-color: #000000;
+            box-shadow: inset 0 0 0 2px rgba(0,0,0,0.1);
         }
 
-        input::placeholder,
-        textarea::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-
-        textarea {
-            min-height: 150px;
+        .form-group textarea {
+            min-height: 120px;
             resize: vertical;
         }
 
-        button {
-            padding: 1.25rem 2.5rem;
-            background: transparent;
+        .form-group button {
+            background: #000000;
             color: #ffffff;
-            border: 2px solid #ffffff;
+            padding: 0.85rem 2rem;
+            border: 2px solid #000000;
             font-family: 'Georgia', serif;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.25em;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            align-self: flex-start;
+            width: 100%;
         }
 
-        button:hover {
+        .form-group button:hover {
             background: #ffffff;
             color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
         }
 
-        .decorative-border {
-            width: 100%;
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 8px solid #ffffff;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-symbol {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Decorative Elements */
+        .decorative-line {
+            width: 100px;
             height: 2px;
-            background: linear-gradient(to right, transparent, #ffffff, transparent);
-            margin: 2rem 0;
+            background: #000000;
+            margin: 2rem auto;
         }
 
+        .decorative-line.white {
+            background: #ffffff;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                padding: 1rem;
+            header h1 {
+                font-size: 1.8rem;
             }
 
-            .columns {
-                display: none;
+            nav ul {
+                flex-direction: column;
             }
 
-            .column {
-                width: 60px;
-                height: 200px;
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid #000000;
             }
 
-            .about,
-            .contact {
-                padding: 3rem 1rem;
+            nav li:last-child a {
+                border-bottom: none;
             }
 
-            .contact-content {
-                padding: 2rem 1.5rem;
+            section {
+                padding: 3rem 1.5rem;
             }
 
-            .pillars-container {
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            #hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-wrapper {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            button {
-                width: 100%;
-                align-self: stretch;
+            .square-compass {
+                width: 100px;
+                height: 100px;
+            }
+
+            .header-symbol {
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="sacred-geometry">
-            <svg viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="80" />
-                <circle cx="100" cy="100" r="60" />
-                <circle cx="100" cy="100" r="40" />
-                <polygon points="100,20 180,180 20,180" />
-                <line x1="100" y1="20" x2="100" y2="180" />
-                <line x1="20" y1="180" x2="180" y2="180" />
-                <line x1="20" y1="180" x2="180" y2="20" />
-                <line x1="180" y1="180" x2="20" y2="20" />
+    <header>
+        <div class="header-symbol">
+            <svg viewBox="0 0 100 100">
+                <path d="M 50 20 L 30 70 L 70 70 Z" />
+                <path d="M 50 70 L 70 20 L 30 20 Z" />
+                <line x1="30" y1="20" x2="70" y2="70" stroke-width="1.5"/>
+                <line x1="70" y1="20" x2="30" y2="70" stroke-width="1.5"/>
+                <circle cx="50" cy="45" r="20" stroke-width="1"/>
             </svg>
         </div>
+        <h1>Village 315 Lodge</h1>
+        <p class="tagline">Ancient Free & Accepted Masons</p>
+        <div class="coat-of-arms">⬥ ◆ ⬥</div>
+    </header>
 
-        <div class="columns">
-            <div class="column"></div>
-            <div class="column"></div>
-        </div>
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#degrees">Degrees</a></li>
+            <li><a href="#officers">Officers</a></li>
+            <li><a href="#meetings">Meetings</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <div class="checkered-floor"></div>
-
+    <section id="hero">
         <div class="hero-content">
-            <div class="masonic-symbol">
-                <div class="square-compass">
-                    <svg viewBox="0 0 200 200">
-                        <path d="M 100 40 L 60 160 L 140 160 Z" />
-                        <path d="M 100 160 L 140 40 L 60 40 Z" />
-                        <line x1="60" y1="40" x2="140" y2="160" stroke-width="4"/>
-                        <line x1="140" y1="40" x2="60" y2="160" stroke-width="4"/>
-                        <circle cx="100" cy="100" r="45" stroke-width="2"/>
-                    </svg>
-                    <div class="letter-g">G</div>
-                </div>
-            </div>
-
-            <h1>Village 315</h1>
-            <p class="subtitle">Ancient Free & Accepted</p>
-            <p class="motto">Brotherly Love, Relief, and Truth</p>
-
-            <div class="all-seeing-eye">
-                <svg viewBox="0 0 200 200">
-                    <polygon points="100,30 180,170 20,170" fill="none" />
-                    <ellipse cx="100" cy="110" rx="40" ry="30" fill="none" />
-                    <circle cx="100" cy="110" r="15" />
-                    <line x1="60" y1="110" x2="85" y2="110" />
-                    <line x1="115" y1="110" x2="140" y2="110" />
+            <div class="square-compass">
+                <svg viewBox="0 0 100 100">
+                    <path d="M 50 15 L 25 75 L 75 75 Z" />
+                    <path d="M 50 75 L 75 15 L 25 15 Z" />
+                    <line x1="25" y1="15" x2="75" y2="75" stroke-width="2"/>
+                    <line x1="75" y1="15" x2="25" y2="75" stroke-width="2"/>
+                    <circle cx="50" cy="45" r="18" stroke-width="1.5"/>
                 </svg>
             </div>
+            <h1>Village 315</h1>
+            <p class="motto">"Brotherly Love, Relief, and Truth"</p>
+            <p class="sub-text">Building Better Men Since 1867</p>
         </div>
     </section>
 
-    <section class="about">
-        <div class="about-content">
-            <h2>Our Pillars</h2>
+    <section id="about">
+        <h2>About Our Lodge</h2>
+        <p class="about-intro">
+            Village 315 Lodge is dedicated to the craft of Freemasonry and the principles of self-improvement, charitable work, and brotherhood. We welcome men of good character who seek to enhance their lives through masonic education and fellowship.
+        </p>
 
-            <div class="pillars-container">
-                <div class="pillar">
-                    <div class="pillar-icon">⊕</div>
-                    <h3>Wisdom</h3>
-                    <p>Through knowledge and understanding, we build a foundation of enlightenment that guides our path forward.</p>
-                </div>
-
-                <div class="pillar">
-                    <div class="pillar-icon">△</div>
-                    <h3>Strength</h3>
-                    <p>United in brotherhood, we support one another through life's challenges with unwavering resolve.</p>
-                </div>
-
-                <div class="pillar">
-                    <div class="pillar-icon">◇</div>
-                    <h3>Beauty</h3>
-                    <p>We celebrate the harmony and elegance found in both the moral and physical world around us.</p>
-                </div>
+        <div class="principles-grid">
+            <div class="principle">
+                <div class="principle-number">1</div>
+                <h3>Brotherly Love</h3>
+                <p>We strengthen our bonds through mutual respect, support, and genuine care for our fellow members and the community we serve.</p>
             </div>
-
-            <div class="decorative-border"></div>
-
-            <div style="text-align: center; margin-top: 3rem; line-height: 2; opacity: 0.8;">
-                <p style="font-size: 1.125rem; letter-spacing: 0.15em;">
-                    We are a fraternal organization dedicated to making good men better through
-                    self-improvement, charitable work, and the bonds of brotherhood.
-                </p>
+            <div class="principle">
+                <div class="principle-number">2</div>
+                <h3>Relief</h3>
+                <p>We are committed to providing assistance to those in need, both within our lodge family and throughout our broader community.</p>
+            </div>
+            <div class="principle">
+                <div class="principle-number">3</div>
+                <h3>Truth</h3>
+                <p>We pursue knowledge, wisdom, and integrity in all our endeavors, seeking enlightenment through education and honest reflection.</p>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <div class="contact-content">
-            <h2>Contact Lodge</h2>
+    <section id="degrees">
+        <h2>The Three Degrees</h2>
+        <div class="degrees-container">
+            <div class="degree">
+                <div class="degree-number">1°</div>
+                <h3>Entered Apprentice</h3>
+                <p>The foundation of masonic knowledge. The candidate is introduced to the principles of the craft and begins their journey toward enlightenment.</p>
+            </div>
+            <div class="degree">
+                <div class="degree-number">2°</div>
+                <h3>Fellowcraft</h3>
+                <p>The candidate deepens their understanding of masonic science and geometry. Knowledge of the craft is further developed and refined.</p>
+            </div>
+            <div class="degree">
+                <div class="degree-number">3°</div>
+                <h3>Master Mason</h3>
+                <p>The highest degree in the lodge. The Master Mason represents the completion of one's journey and the attainment of masonic wisdom.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="decorative-border"></div>
+    <section id="officers">
+        <h2>Lodge Officers</h2>
+        <div class="officers-grid">
+            <div class="officer">
+                <div class="officer-symbol">⊕</div>
+                <h3>Worshipful Master</h3>
+                <div class="officer-title">President of Lodge</div>
+                <p>John Richardson</p>
+            </div>
+            <div class="officer">
+                <div class="officer-symbol">◈</div>
+                <h3>Senior Warden</h3>
+                <div class="officer-title">First Officer</div>
+                <p>Robert Mitchell</p>
+            </div>
+            <div class="officer">
+                <div class="officer-symbol">◇</div>
+                <h3>Junior Warden</h3>
+                <div class="officer-title">Second Officer</div>
+                <p>Michael Carter</p>
+            </div>
+            <div class="officer">
+                <div class="officer-symbol">△</div>
+                <h3>Treasurer</h3>
+                <div class="officer-title">Financial Officer</div>
+                <p>David Sullivan</p>
+            </div>
+            <div class="officer">
+                <div class="officer-symbol">□</div>
+                <h3>Secretary</h3>
+                <div class="officer-title">Records Officer</div>
+                <p>Thomas Patterson</p>
+            </div>
+            <div class="officer">
+                <div class="officer-symbol">⊗</div>
+                <h3>Tyler</h3>
+                <div class="officer-title">Guard</div>
+                <p>William Thompson</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="meetings">
+        <h2>Meeting Information</h2>
+        <div class="meetings-grid">
+            <div class="meeting-info">
+                <h3>Stated Communication</h3>
+                <p><strong>When:</strong> Second Tuesday of every month</p>
+                <p><strong>Time:</strong> 7:00 PM</p>
+                <p><strong>Where:</strong> Village 315 Masonic Temple</p>
+            </div>
+            <div class="meeting-info">
+                <h3>Special Communications</h3>
+                <p><strong>When:</strong> As announced</p>
+                <p><strong>Time:</strong> Varies</p>
+                <p><strong>Where:</strong> Village 315 Masonic Temple</p>
+            </div>
+            <div class="meeting-info">
+                <h3>Officers' Meetings</h3>
+                <p><strong>When:</strong> First Tuesday of every month</p>
+                <p><strong>Time:</strong> 6:00 PM</p>
+                <p><strong>Where:</strong> Village 315 Masonic Temple</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Lodge Information</h3>
+                <div class="contact-item">
+                    <strong>Address</strong>
+                    315 Masonic Lane<br>
+                    Village, ST 12345
+                </div>
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    (555) 123-4567
+                </div>
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    info@village315lodge.org
+                </div>
+                <div class="contact-item">
+                    <strong>Office Hours</strong>
+                    Monday - Friday<br>
+                    2:00 PM - 5:00 PM
+                </div>
+            </div>
 
             <form class="contact-form" onsubmit="handleSubmit(event)">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Share your inquiry" required></textarea>
+                    <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit">Submit Inquiry</button>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
             </form>
-
-            <div class="decorative-border"></div>
         </div>
     </section>
+
+    <footer>
+        <div class="footer-symbol">⬥ ◆ ⬥</div>
+        <p>Village 315 Lodge • Ancient Free & Accepted Masons</p>
+        <p>Building Better Men Through Brotherhood Since 1867</p>
+        <p style="margin-top: 2rem; opacity: 0.7;">© 2024 Village 315 Lodge. All Rights Reserved.</p>
+    </footer>
 
     <script>
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Thank you for your inquiry. A Brother will respond to you shortly.');
+            alert('Thank you for your message. We will respond to your inquiry shortly.');
             event.target.reset();
         }
     </script>
