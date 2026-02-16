@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Village 315</title>
+    <title>Village 315 - Masonic Lodge</title>
     <style>
         * {
             margin: 0;
@@ -12,9 +12,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Georgia', 'Garamond', serif;
             line-height: 1.6;
             color: #ffffff;
+            background: #000000;
         }
 
         .hero {
@@ -28,7 +29,173 @@
             padding: 2rem;
         }
 
-        .hero::before {
+        .checkered-floor {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background-image:
+                repeating-linear-gradient(
+                    90deg,
+                    #ffffff 0px,
+                    #ffffff 40px,
+                    #000000 40px,
+                    #000000 80px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    transparent 40px,
+                    rgba(255,255,255,0.1) 40px,
+                    rgba(255,255,255,0.1) 80px
+                );
+            background-size: 80px 80px;
+            background-position: 0 0, 40px 40px;
+            opacity: 0.2;
+        }
+
+        .columns {
+            position: absolute;
+            bottom: 150px;
+            left: 10%;
+            right: 10%;
+            display: flex;
+            justify-content: space-between;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .column {
+            width: 80px;
+            height: 300px;
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 10%, #cccccc 10%, #cccccc 90%, #ffffff 90%, #ffffff 100%);
+            position: relative;
+        }
+
+        .column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 40px;
+            background: #ffffff;
+            clip-path: polygon(10% 100%, 90% 100%, 100% 0%, 0% 0%);
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .masonic-symbol {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .square-compass {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .square-compass svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 3;
+        }
+
+        .letter-g {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffffff;
+            font-family: 'Georgia', serif;
+        }
+
+        .all-seeing-eye {
+            width: 100px;
+            height: 100px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .all-seeing-eye svg {
+            width: 100%;
+            height: 100%;
+            fill: #ffffff;
+            stroke: #ffffff;
+            stroke-width: 2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .motto {
+            font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+            font-style: italic;
+            letter-spacing: 0.15em;
+            opacity: 0.7;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding: 1rem 0;
+        }
+
+        .sacred-geometry {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .sacred-geometry svg {
+            width: 100%;
+            height: auto;
+            stroke: #ffffff;
+            fill: none;
+            stroke-width: 1;
+        }
+
+        .about {
+            min-height: 100vh;
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .about::before {
             content: '';
             position: absolute;
             top: 0;
@@ -36,97 +203,162 @@
             right: 0;
             bottom: 0;
             background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(255,255,255,0.02) 50px,
+                    rgba(255,255,255,0.02) 100px
+                );
             pointer-events: none;
         }
 
-        .hero-content {
-            text-align: center;
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        .watermark {
-            font-size: clamp(120px, 25vw, 300px);
-            font-weight: 900;
-            letter-spacing: -0.05em;
-            line-height: 0.9;
-            opacity: 0.15;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            user-select: none;
-            pointer-events: none;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 6vw, 4rem);
-            font-weight: 300;
+        .about h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 400;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 1rem;
         }
 
-        .subtitle {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            font-weight: 300;
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .pillar {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .pillar-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .pillar h3 {
+            font-size: 1.5rem;
             letter-spacing: 0.2em;
+            margin-bottom: 1rem;
             text-transform: uppercase;
-            opacity: 0.7;
+        }
+
+        .pillar p {
+            opacity: 0.8;
+            line-height: 1.8;
         }
 
         .contact {
             min-height: 100vh;
-            background: #ffffff;
-            color: #000000;
+            background: #000000;
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 4rem 2rem;
+            position: relative;
+            border-top: 3px solid #ffffff;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 80px,
+                    rgba(255,255,255,0.03) 80px,
+                    rgba(255,255,255,0.03) 160px
+                );
+            pointer-events: none;
         }
 
         .contact-content {
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
+            position: relative;
+            z-index: 1;
+            border: 3px solid rgba(255,255,255,0.3);
+            padding: 3rem;
+            background: rgba(0,0,0,0.8);
         }
 
         .contact h2 {
             font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 300;
-            letter-spacing: 0.2em;
+            font-weight: 400;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
             margin-bottom: 3rem;
             text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: #ffffff;
         }
 
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         label {
             font-size: 0.875rem;
             font-weight: 500;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
+            opacity: 0.9;
         }
 
         input,
         textarea {
             padding: 1rem;
-            border: 2px solid #000000;
-            background: transparent;
-            font-family: inherit;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.05);
+            color: #ffffff;
+            font-family: 'Georgia', serif;
             font-size: 1rem;
             transition: all 0.3s ease;
         }
@@ -134,8 +366,13 @@
         input:focus,
         textarea:focus {
             outline: none;
-            background: #000000;
-            color: #ffffff;
+            border-color: #ffffff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255,255,255,0.5);
         }
 
         textarea {
@@ -146,12 +383,12 @@
         button {
             padding: 1.25rem 2.5rem;
             background: transparent;
-            color: #000000;
-            border: 2px solid #000000;
-            font-family: inherit;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            font-family: 'Georgia', serif;
             font-size: 1rem;
             font-weight: 500;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -159,8 +396,17 @@
         }
 
         button:hover {
-            background: #000000;
-            color: #ffffff;
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        }
+
+        .decorative-border {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ffffff, transparent);
+            margin: 2rem 0;
         }
 
         @media (max-width: 768px) {
@@ -168,8 +414,27 @@
                 padding: 1rem;
             }
 
+            .columns {
+                display: none;
+            }
+
+            .column {
+                width: 60px;
+                height: 200px;
+            }
+
+            .about,
             .contact {
                 padding: 3rem 1rem;
+            }
+
+            .contact-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .pillars-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             button {
@@ -181,38 +446,121 @@
 </head>
 <body>
     <section class="hero">
-        <div class="watermark">315</div>
+        <div class="sacred-geometry">
+            <svg viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" />
+                <circle cx="100" cy="100" r="60" />
+                <circle cx="100" cy="100" r="40" />
+                <polygon points="100,20 180,180 20,180" />
+                <line x1="100" y1="20" x2="100" y2="180" />
+                <line x1="20" y1="180" x2="180" y2="180" />
+                <line x1="20" y1="180" x2="180" y2="20" />
+                <line x1="180" y1="180" x2="20" y2="20" />
+            </svg>
+        </div>
+
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+
+        <div class="checkered-floor"></div>
+
         <div class="hero-content">
+            <div class="masonic-symbol">
+                <div class="square-compass">
+                    <svg viewBox="0 0 200 200">
+                        <path d="M 100 40 L 60 160 L 140 160 Z" />
+                        <path d="M 100 160 L 140 40 L 60 40 Z" />
+                        <line x1="60" y1="40" x2="140" y2="160" stroke-width="4"/>
+                        <line x1="140" y1="40" x2="60" y2="160" stroke-width="4"/>
+                        <circle cx="100" cy="100" r="45" stroke-width="2"/>
+                    </svg>
+                    <div class="letter-g">G</div>
+                </div>
+            </div>
+
             <h1>Village 315</h1>
-            <p class="subtitle">Welcome</p>
+            <p class="subtitle">Ancient Free & Accepted</p>
+            <p class="motto">Brotherly Love, Relief, and Truth</p>
+
+            <div class="all-seeing-eye">
+                <svg viewBox="0 0 200 200">
+                    <polygon points="100,30 180,170 20,170" fill="none" />
+                    <ellipse cx="100" cy="110" rx="40" ry="30" fill="none" />
+                    <circle cx="100" cy="110" r="15" />
+                    <line x1="60" y1="110" x2="85" y2="110" />
+                    <line x1="115" y1="110" x2="140" y2="110" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-content">
+            <h2>Our Pillars</h2>
+
+            <div class="pillars-container">
+                <div class="pillar">
+                    <div class="pillar-icon">⊕</div>
+                    <h3>Wisdom</h3>
+                    <p>Through knowledge and understanding, we build a foundation of enlightenment that guides our path forward.</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">△</div>
+                    <h3>Strength</h3>
+                    <p>United in brotherhood, we support one another through life's challenges with unwavering resolve.</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">◇</div>
+                    <h3>Beauty</h3>
+                    <p>We celebrate the harmony and elegance found in both the moral and physical world around us.</p>
+                </div>
+            </div>
+
+            <div class="decorative-border"></div>
+
+            <div style="text-align: center; margin-top: 3rem; line-height: 2; opacity: 0.8;">
+                <p style="font-size: 1.125rem; letter-spacing: 0.15em;">
+                    We are a fraternal organization dedicated to making good men better through
+                    self-improvement, charitable work, and the bonds of brotherhood.
+                </p>
+            </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
         <div class="contact-content">
-            <h2>Contact Us</h2>
+            <h2>Contact Lodge</h2>
+
+            <div class="decorative-border"></div>
+
             <form class="contact-form" onsubmit="handleSubmit(event)">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <textarea id="message" name="message" placeholder="Share your inquiry" required></textarea>
                 </div>
-                <button type="submit">Send Message</button>
+                <button type="submit">Submit Inquiry</button>
             </form>
+
+            <div class="decorative-border"></div>
         </div>
     </section>
 
     <script>
         function handleSubmit(event) {
             event.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
+            alert('Thank you for your inquiry. A Brother will respond to you shortly.');
             event.target.reset();
         }
     </script>
